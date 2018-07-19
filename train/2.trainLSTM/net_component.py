@@ -13,7 +13,8 @@ class LanNet(nn.Module):
         self.output_dim = output_dim
 
         self.layer1 = nn.Sequential()
-        self.layer1.add_module('lstm', nn.LSTM(self.input_dim, self.hidden_dim, num_layers=3, batch_first=True, bidirectional=False))
+        self.layer1.add_module('lstm', nn.LSTM(self.input_dim, self.hidden_dim, num_layers=3, batch_first=True,
+                                               dropout=0.25, bidirectional=False))
 
         self.layer2 = nn.Sequential()
         self.layer2.add_module('linear', nn.Linear(self.hidden_dim, self.bn_dim))
@@ -26,7 +27,7 @@ class LanNet(nn.Module):
         batch_size, fea_frames, fea_dim = src.size()
 
         out_hidden, hidd = self.layer1(src)
-        out_hidden = out_hidden.contiguous().view(-1, out_hidden.size(-1))   
+        out_hidden = out_hidden.contiguous().view(-1, out_hidden.size(-1))
         out_bn = self.layer2(out_hidden)
         out_target = self.layer3(out_bn)
 

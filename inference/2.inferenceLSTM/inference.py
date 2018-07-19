@@ -45,7 +45,7 @@ dev_list   = "./label_dev_list_fb.txt"
 # 网络参数
 dimension = 40
 language_nums = 6
-learning_rate = 0.1
+learning_rate = 0.15
 batch_size = 75
 chunk_num = 10
 train_iteration = 10
@@ -68,10 +68,10 @@ sentences=np.array(sentences)
 dev_dataset = TorchDataSet(dev_list, batch_size, chunk_num, dimension)
 logging.info('finish reading all train data')
 
-train_module = LanNet(input_dim=dimension, hidden_dim=128, bn_dim=30, output_dim=language_nums)
+train_module = LanNet(input_dim=dimension, hidden_dim=256, bn_dim=30, output_dim=language_nums)
 logging.info(train_module)
 
-train_module.load_state_dict(torch.load('/inference/models/model9.model', map_location=lambda storage, loc: storage))
+train_module.load_state_dict(torch.load('/inference/models/model.model', map_location=lambda storage, loc: storage))
 train_module.eval()
 epoch_tic = time.time()
 dev_loss = 0.

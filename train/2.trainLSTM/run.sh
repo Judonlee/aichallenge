@@ -4,16 +4,20 @@
 #mkdir log 
 #fi
 
-# »ñµÃ×öÍêVADºóÑµÁ·¼¯ºÍ¿ª·¢¼¯µÄÓïÒôÊý¾ÝÁÐ±íÎÄ¼þ
-find "../2.getFB40/fb40" -name '*train*.fb' >train_list_fb.txt
-find "../2.getFB40/fb40" -name '*dev*.fb'   >dev_list_fb.txt
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½VADï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ä¼ï¿½
+find "../1.getFB40/fb40" -name '*train*.fb' >train_list_fb.txt
+find "../1.getFB40/fb40" -name '*dev*.fb'   >dev_list_fb.txt
+
+find "../1.getFB40/fb40" -name '*.fb'       >train_dev_list_fb.txt
 
 
-# ×ª»»³É´ø±êÇ©µÄÁÐ±í
+# ×ªï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½Ð±ï¿½
 perl get_list.pl train_list_fb.txt lanKey.txt label_train_list_fb.txt
 perl get_list.pl dev_list_fb.txt   lanKey.txt label_dev_list_fb.txt
 
-# ÑµÁ·ÍøÂç£¬²ÎÊýÔÚtrain.pyÀïÃæÅäÖÃ
+perl get_list.pl train_dev_list_fb.txt   lanKey.txt label_train_dev_list_fb.txt
+
+# Ñµï¿½ï¿½ï¿½ï¿½ï¿½ç£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½train.pyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #nohup python train.py  >log/TrainLan.log 2>&1&
 
 python train.py 
