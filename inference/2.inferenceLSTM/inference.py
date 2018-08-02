@@ -44,8 +44,8 @@ dev_list   = "./label_dev_list_fb.txt"
 #    os.makedirs(model_dir)
 # 网络参数
 dimension = 40
-language_nums = 6
-learning_rate = 0.15
+language_nums = 9
+learning_rate = 0.1
 batch_size = 75
 chunk_num = 10
 train_iteration = 10
@@ -55,7 +55,7 @@ half = 4
 f=open("/result/result.txt","w")
 #f.write("posterior: changsha, hebei, nanchang, shanghai, kejia, minnan\n")
 
-fangyan=np.array(["minnan","nanchang","kejia","changsha","shanghai","hebei"])
+fangyan=np.array(["minnan","nanchang","kejia","changsha","shanghai","hebei","hefei","sichuan","shan3xi"])
 sentences=[]
 
 with open("./label_dev_list_fb.txt","r") as s:
@@ -68,7 +68,7 @@ sentences=np.array(sentences)
 dev_dataset = TorchDataSet(dev_list, batch_size, chunk_num, dimension)
 logging.info('finish reading all train data')
 
-train_module = LanNet(input_dim=dimension, hidden_dim=256, bn_dim=30, output_dim=language_nums)
+train_module = LanNet(input_dim=dimension, hidden_dim=128, bn_dim=45, output_dim=language_nums)
 logging.info(train_module)
 
 train_module.load_state_dict(torch.load('/inference/models/model.model', map_location=lambda storage, loc: storage))

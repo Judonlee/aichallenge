@@ -4,3 +4,6 @@ kejia 2
 changsha 3
 shanghai 4
 hebei 5
+hefei 6
+sichuan 7
+shan3xi 8

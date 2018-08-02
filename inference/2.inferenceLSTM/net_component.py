@@ -14,7 +14,7 @@ class LanNet(nn.Module):
 
         self.layer1 = nn.Sequential()
         self.layer1.add_module('lstm', nn.LSTM(self.input_dim, self.hidden_dim, num_layers=3, batch_first=True,
-                                               dropout=0.25, bidirectional=False))
+                                               bidirectional=False))
 
         self.layer2 = nn.Sequential()
         self.layer2.add_module('linear', nn.Linear(self.hidden_dim, self.bn_dim))
