@@ -44,7 +44,7 @@ dev_list   = "./label_dev_list_fb.txt"
 #    os.makedirs(model_dir)
 # 网络参数
 dimension = 40
-language_nums = 9
+language_nums = 10
 learning_rate = 0.1
 batch_size = 75
 chunk_num = 10
@@ -55,7 +55,7 @@ half = 4
 f=open("/result/result.txt","w")
 #f.write("posterior: changsha, hebei, nanchang, shanghai, kejia, minnan\n")
 
-fangyan=np.array(["minnan","nanchang","kejia","changsha","shanghai","hebei","hefei","sichuan","shan3xi"])
+fangyan=np.array(["minnan","nanchang","kejia","changsha","shanghai","hebei","hefei","sichuan","shan3xi","ningxia"])
 sentences=[]
 
 with open("./label_dev_list_fb.txt","r") as s:

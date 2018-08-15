@@ -56,7 +56,7 @@ if not os.path.exists(model_dir):
     os.makedirs(model_dir)
 # 网络参数
 dimension = 40
-language_nums = 9
+language_nums = 10
 learning_rate = 0.1
 batch_size = 64
 chunk_num = 10
