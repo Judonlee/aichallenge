@@ -46,7 +46,7 @@ dev_list   = "./label_dev_list_fb.txt"
 dimension = 40
 language_nums = 10
 learning_rate = 0.1
-batch_size = 75
+batch_size = 100
 chunk_num = 10
 train_iteration = 10
 display_fre = 50
@@ -62,7 +62,7 @@ with open("./label_dev_list_fb.txt","r") as s:
     for line in s.readlines():
         sentences.append(line.strip().split("/")[-1].split()[0].replace("fb","pcm"))
 sentences=np.array(sentences)
-#print len(sentences)
+print(len(sentences))
 
 ## ======================================
 dev_dataset = TorchDataSet(dev_list, batch_size, chunk_num, dimension)
@@ -124,6 +124,6 @@ epoch_toc = time.time()
 epoch_time = epoch_toc-epoch_tic
 acc=dev_acc/dev_batch_num
 ACC =ACC/dev_size
-print "ACC:",ACC
+print "ACC:", ACC
 # f.write("ACC: "+str(ACC))
 f.close()

@@ -32,7 +32,7 @@ import torch.utils.data as Data
 from read_data import get_samples, get_data, TorchDataSet
 from net_component import LanNet
 
-use_dev = True
+use_dev = False
 ## ======================================
 # 配置文件和参数
 # 数据列表
