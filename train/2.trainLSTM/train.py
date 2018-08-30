@@ -58,7 +58,7 @@ if not os.path.exists(model_dir):
 dimension = 40
 language_nums = 10
 learning_rate = 0.1
-batch_size = 64
+batch_size = 32
 chunk_num = 10
 train_iteration = 15
 display_fre = 50
@@ -71,7 +71,7 @@ dev_dataset = TorchDataSet(dev_list, batch_size, chunk_num, dimension)
 logging.info('finish reading all train data')
 
 # 优化器，SGD更新梯度
-train_module = LanNet(input_dim=dimension, hidden_dim=128, bn_dim=45, output_dim=language_nums)
+train_module = LanNet(input_dim=dimension, hidden_dim=512, bn_dim=45, output_dim=language_nums)
 logging.info(train_module)
 optimizer = torch.optim.SGD(train_module.parameters(), lr=learning_rate, momentum=0.9)
 
